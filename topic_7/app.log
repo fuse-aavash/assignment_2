@@ -1,0 +1,6 @@
+2023-08-01 10:05:15 INFO: Application started
+2023-08-01 10:10:23 ERROR: Connection error: Could not connect to the server
+2023-08-01 10:15:41 WARNING: Disk space is running low
+2023-08-01 10:20:02 INFO: User logged in: john_doe
+2023-08-01 10:25:55 ERROR: Database connection failed
+2023-08-01 10:30:12 INFO: Application stopped
