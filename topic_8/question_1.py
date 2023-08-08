@@ -16,7 +16,7 @@ class University:
 
 class Department(University):
     def __init__(self, name, head_of_department):
-        super().__init__("University of Newyork", "New York ")  # Default university name and location
+        super().__init__("University of Newyork", "New York ")  
         self.__department_name = name
         self.__head_of_department = head_of_department
         self.__courses_offered = []
@@ -35,24 +35,23 @@ class Department(University):
             print(f" - {course}")
 
 
-# Create a University object
 university = University("University of Nepal", "City ABC")
 
-# Create Department objects
+
 department1 = Department("Computer Science", "Dr. Smith")
 department2 = Department("Physics", "Prof. Johnson")
 
-# Add departments to the university
+
 university.add_department(department1)
 university.add_department(department2)
 
-# Add courses to the departments
+
 department1.add_course("Introduction to Programming")
 department1.add_course("Data Structures and Algorithms")
 department2.add_course("Classical Mechanics")
 department2.add_course("Quantum Physics")
 
-# Display details of the university and departments
+
 university.display_details()
 print("\n")
 department1.display_details()
