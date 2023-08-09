@@ -51,3 +51,5 @@ def find_bigger_number(a, b, c):
     return max_number if max_number > min(a, b, c) else "Equal"
 
 print(find_bigger_number(2,2,1))
+
+

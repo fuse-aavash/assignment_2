@@ -1,39 +1,27 @@
 class CustomZeroDivisionError(ZeroDivisionError):
     pass
 
-def perform_division(num1, num2):
+
+def perform_division(dividend, divisor):
     """
-    Perform division (num1 / num2) of two integers.
+    Perform division (dividend / divisor) of two integers.
 
     Parameters:
-        num1 (int): The dividend.
-        num2 (int): The divisor.
+        dividend (int): The dividend.
+        divisor (int): The divisor.
 
     Returns:
         float: The result of the division.
 
     Raises:
-        ZeroDivisionError: If num2 is zero.
+        CustomZeroDivisionError: If divisor is zero.
 
-   
     """
     try:
-        result = num1 / num2
+        result = dividend / divisor
         return result
-    except ZeroDivisionError:
-        raise CustomZeroDivisionError("Error: Division by zero is not allowed.")
-
-
-try:
-    num1 = int(input("Enter the first integer: "))
-    num2 = int(input("Enter the second integer: "))
-    result = perform_division(num1, num2)
-    print(f"The result of division is: {result}")
-except ValueError:
-    print("Error: Please enter valid integers.")
-except CustomZeroDivisionError as e:
-    print(e)
-
+    except ZeroDivisionError as exc:
+        raise CustomZeroDivisionError("Error: Division by zero is not allowed.") from exc
 
 
 def get_integer_input():
@@ -46,13 +34,6 @@ def get_integer_input():
     Raises:
         ValueError: If the input cannot be converted to an integer.
 
-    Example:
-        >>> get_integer_input()
-        Enter an integer: 123
-        123
-        >>> get_integer_input()
-        Enter an integer: abc
-        Error: Please enter a valid integer.
     """
     while True:
         try:
@@ -63,14 +44,9 @@ def get_integer_input():
             print("Error: Please enter a valid integer.")
 
 
-
-integer_value = get_integer_input()
-print(integer_value)
-
-    
-  
 class InvalidAgeError(Exception):
     pass
+
 
 def get_age():
     """
@@ -82,7 +58,6 @@ def get_age():
     Raises:
         InvalidAgeError: If the age is below 0 or above 120.
 
-    
     """
     while True:
         try:
@@ -92,17 +67,13 @@ def get_age():
             return age
         except ValueError:
             print("Error: Please enter a valid integer for age.")
-        except InvalidAgeError as e:
-            print(e)
-
-
-if __name__ == "__main__":
-    age_value = get_age()
-    print(age_value)
+        except InvalidAgeError as error:
+            print(error)
 
 
 class WeakPasswordError(Exception):
     pass
+
 
 def check_password_strength(password):
     """
@@ -114,15 +85,31 @@ def check_password_strength(password):
     Raises:
         WeakPasswordError: If the password is shorter than 8 characters.
 
-   
     """
     if len(password) < 8:
         raise WeakPasswordError("Password is too weak. It must be at least 8 characters long.")
 
 
-try:
-    password = input("Enter your password: ")
-    check_password_strength(password)
-    print("Password is strong!")
-except WeakPasswordError as e:
-    print(e)
+if __name__ == "__main__":
+    try:
+        num1 = int(input("Enter the first integer: "))
+        num2 = int(input("Enter the second integer: "))
+        result = perform_division(num1, num2)
+        print(f"The result of division is: {result}")
+    except ValueError:
+        print("Error: Please enter valid integers.")
+    except CustomZeroDivisionError as error:
+        print(error)
+
+    integer_value = get_integer_input()
+    print(integer_value)
+
+    age_value = get_age()
+    print(age_value)
+
+    try:
+        password = input("Enter your password: ")
+        check_password_strength(password)
+        print("Password is strong!")
+    except WeakPasswordError as error:
+        print(error)

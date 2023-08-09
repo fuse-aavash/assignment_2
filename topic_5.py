@@ -68,7 +68,7 @@ def filter_students_above_80(scores_dict):
     """
     return {name: score for name, score in scores_dict.items() if score > 80}
 
-print(filter_students_above_80({'Alice': 85, 'Bob': 75, 'Charlie': 90, 'David': 80}))
+print(filter_students_above_80({'Aavash': 85, 'ram': 75, 'hari': 90, 'shyam': 80}))
 
 
 def unique_even_numbers(numbers_list):
